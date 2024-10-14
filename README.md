@@ -2,7 +2,7 @@
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   ## Description
-  The Auto README generator is a professional tool designed to simplify the creation of high quality README files for your software projects. It automates the tedious work of structuring , formatting and content creation for a README allowing you to quickly generate an informative and standardized document
+  This project seeks to develop an application that updates an existing platform to include additional vehicles such as motorbikes and trucks to the vehicle buider app. Users can select an existing vehecle or be prompted to custom build one for themselves. The application enables user create their own vehicles from simple command line instructions. 
 
   ## Table of Contents
   - [Installation](#installation)
@@ -17,11 +17,11 @@
   Node JS (v22 or later)
 
   ## Usage
-  node index.js on the command line
+  npm run start on the command line
 
   ## Credits
-  None yet
-  None yet
+  Non yet
+  
 
   ## License
   This project is licensed under the MIT license.
