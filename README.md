@@ -2,7 +2,7 @@
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   ## Description
-  This project seeks to develop an application that updates an existing platform to include additional vehicles such as motorbikes and trucks to the vehicle buider app. Users can select an existing vehecle or be prompted to custom build one for themselves. The application enables user create their own vehicles from simple command line instructions. 
+  This project seeks to develop an application that updates an existing platform to include additional vehicles such as motorbikes and trucks to the vehicle buider app. Users can select an existing vehicle or be prompted to custom build one for themselves. The application enables user create their own vehicles from simple command line instructions. 
 
   ## Table of Contents
   - [Installation](#installation)
