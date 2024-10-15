@@ -1,4 +1,5 @@
 // Importing Vehicle and Wheel classes
+import { truncate } from 'fs';
 import Vehicle from './Vehicle.js';
 import Wheel from './Wheel.js';
 
@@ -31,8 +32,8 @@ class Motorbike extends Vehicle {
     year: number,
     weight: number,
     topSpeed: number,
-    wheels: Wheel[ ] = [new Wheel(), new Wheel()],
-    wheelie = true,
+    wheels: Wheel[ ], 
+    
   
   ) 
 
@@ -49,8 +50,8 @@ class Motorbike extends Vehicle {
       this.wheels = [new Wheel(), new Wheel()];
     } else {
       this.wheels = wheels;
-    }
-    this.wheelie = wheelie;
+    };
+    this.wheelie = true;
   }
 
   

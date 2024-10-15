@@ -257,7 +257,13 @@ class Cli {
           name: 'rearWheelBrand',
           message: 'Enter Rear Wheel Brand',
         },
+        {
+          type: 'confirm',
+          name: 'wheelie',
+          message: 'Can the motorbike perform a wheelie?',
+        },
       ])
+      // TODO: Use the answers object to pass the required properties to the Motorbike constructor
       .then((answers) => {
         const motorbike = new Motorbike(
           Cli.generateVin(),
@@ -276,12 +282,14 @@ class Cli {
               parseInt(answers.rearWheelDiameter),
               answers.rearWheelBrand
             ),
-          ]
+          ],
+          
         );
         this.vehicles.push(motorbike);
         this.selectedVehicleVin = motorbike.vin;
         this.performActions();
-        // TODO: Use the answers object to pass the required properties to the Motorbike constructor
+        
+        
         // TODO: push the motorbike to the vehicles array
         // TODO: set the selectedVehicleVin to the vin of the motorbike
         // TODO: perform actions on the motorbike
@@ -313,14 +321,14 @@ class Cli {
           console.log('A truck cannot tow itself');
           this.performActions();
         }
-        // else {
-        //   this.vehicles.forEach((vehicle) => {
-        //     if (vehicle.vin === this.selectedVehicleVin) {
-        //       vehicle.tow(vehicleToTow);
-        //     }
-        //   });
-        //   this.performActions();
-        // }
+        else {
+          this.vehicles.forEach((vehicle) => {
+            if (vehicle.vin === this.selectedVehicleVin) {
+              (vehicle as Truck).tow(vehicleToTow);
+            }
+          });
+          this.performActions();
+        }
 
         // TODO: check if the selected vehicle is the truck
         // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
