@@ -23,9 +23,9 @@ class Motorbike extends Vehicle {
 
   constructor(
     vin: string,
-    color: 'black',
-    make: "string",
-    model: 'Sportster',
+    color: string,
+    make: string,
+    model: string,
     year: number,
     weight: number,
     topSpeed: number,
