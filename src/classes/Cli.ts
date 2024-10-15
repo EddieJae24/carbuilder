@@ -1,5 +1,6 @@
 // importing classes from other files
 import inquirer from "inquirer";
+import color from "colors"; // import the colors package
 import Truck from "./Truck.js";
 import Car from "./Car.js";
 import Motorbike from "./Motorbike.js";
@@ -7,6 +8,7 @@ import Wheel from "./Wheel.js";
 
 // define the Cli class
 class Cli {
+  
   // TODO: update the vehicles property to accept Truck and Motorbike objects as well
   // TODO: You will need to use the Union operator to define additional types for the array
   // TODO: See the AbleToTow interface for an example of how to use the Union operator
@@ -456,6 +458,7 @@ class Cli {
 
   // method to start the cli
   startCli(): void {
+    
     inquirer
       .prompt([
         {
@@ -464,7 +467,9 @@ class Cli {
           message:
             'Would you like to create a new vehicle or perform an action on an existing vehicle?',
           choices: ['Create a new vehicle', 'Select an existing vehicle'],
+          
         },
+        
       ])
       .then((answers) => {
         // check if the user wants to create a new vehicle or select an existing vehicle
@@ -479,3 +484,4 @@ class Cli {
 
 // export the Cli class
 export default Cli;
+
