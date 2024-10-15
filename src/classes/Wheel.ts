@@ -19,6 +19,8 @@ class Wheel {
   get getTireBrand(): string {
     return this.tireBrand;
   }
+
+
 }
 
 // Export the Wheel class

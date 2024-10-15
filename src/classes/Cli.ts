@@ -117,6 +117,11 @@ class Cli {
           name: 'topSpeed',
           message: 'Enter Top Speed',
         },
+        {
+          type: 'confirm',
+          name: 'wheel',
+          message: 'Do you want new wheels for this car?',
+        },
       ])
       .then((answers) => {
         const car = new Car(
@@ -128,8 +133,53 @@ class Cli {
           parseInt(answers.year),
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
+          
           []
         );
+        if (answers.wheel) {
+          inquirer
+            .prompt([
+              {
+                type: 'input',
+                name: 'frontWheelDiameter',
+                message: 'Enter Front Wheel Diameter',
+              },
+              {
+                type: 'input',
+                name: 'frontWheelBrand',
+                message: 'Enter Front Wheel Brand',
+              },
+              {
+                type: 'input',
+                name: 'rearWheelDiameter',
+                message: 'Enter Rear Wheel Diameter',
+              },
+              {
+                type: 'input',
+                name: 'rearWheelBrand',
+                message: 'Enter Rear Wheel Brand',
+              },
+            ])
+            .then((wheelAnswers) => {
+              car.wheels = [
+                new Wheel(
+                  parseInt(wheelAnswers.frontWheelDiameter),
+                  wheelAnswers.frontWheelBrand
+                ),
+                new Wheel(
+                  parseInt(wheelAnswers.rearWheelDiameter),
+                  wheelAnswers.rearWheelBrand
+                ),
+              ];
+              this.vehicles.push(car);
+              this.selectedVehicleVin = car.vin;
+              this.performActions();
+            });
+        } else {
+          this.vehicles.push(car);
+          this.selectedVehicleVin = car.vin;
+          this.performActions();
+        }
         // push the car to the vehicles array
         this.vehicles.push(car);
         // set the selectedVehicleVin to the vin of the car
