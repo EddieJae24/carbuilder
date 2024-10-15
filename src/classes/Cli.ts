@@ -432,6 +432,7 @@ class Cli {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
               if (this.vehicles[i] instanceof Motorbike) {
                 this.findVehicleToTow;
+                return;
               } else {
                 console.log('Only motorbikes can perform a wheelie');
               }
