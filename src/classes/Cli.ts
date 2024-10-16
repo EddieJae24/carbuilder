@@ -378,8 +378,11 @@ class Cli {
           // find the selected vehicle and start it
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
+              if (this.vehicles[i] instanceof Motorbike) {
+              console.log('Select Start engine instead');
+              } else {
               this.vehicles[i].start();
-              
+              }
             }
           }
         } else if (answers.action === 'Accelerate 5 MPH') {
