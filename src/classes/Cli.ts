@@ -284,17 +284,18 @@ class Cli {
               answers.rearWheelBrand
             ),
           ],
-          
+        
         );
         this.vehicles.push(motorbike);
         this.selectedVehicleVin = motorbike.vin;
         this.performActions();
-        
-        
-        // TODO: push the motorbike to the vehicles array
-        // TODO: set the selectedVehicleVin to the vin of the motorbike
-        // TODO: perform actions on the motorbike
       });
+  }
+  
+  // method to perform a wheelie on a motorbike
+  isWheelie(): void {
+    console.log('Performing a wheelie!');
+    this.performActions();
   }
 
  
@@ -358,8 +359,8 @@ class Cli {
             'Reverse',
             'Tow',
             'Wheelie',
-            'Start engine',
-            'Stop engine',
+            // 'Start engine',
+            // 'Stop engine',
             'Select or create another vehicle',
             'Exit',
           ],
@@ -377,11 +378,10 @@ class Cli {
         } else if (answers.action === 'Start vehicle') {
           // find the selected vehicle and start it
           for (let i = 0; i < this.vehicles.length; i++) {
-            if (this.vehicles[i].vin === this.selectedVehicleVin) {
-              if (this.vehicles[i] instanceof Motorbike) {
-              console.log('Select Start engine instead');
+            if (this.vehicles[i].vin === this.selectedVehicleVin) { if (this.vehicles[i].started) {
+                console.log('The vehicle is already started');
               } else {
-              this.vehicles[i].start();
+                this.vehicles[i].start();
               }
             }
           }
@@ -420,7 +420,8 @@ class Cli {
               this.vehicles[i].turn('left');
             }
           }
-        } else if (answers.action === 'Reverse') {
+        } 
+        else if (answers.action === 'Reverse') {
           // find the selected vehicle and reverse it
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
@@ -444,12 +445,14 @@ class Cli {
               }
             }
           }
-        } else if (answers.action === 'Wheelie') {
+        } 
+        
+        else if (answers.action === 'Wheelie') {
           for (let i = 0; i < this.vehicles.length; i++) {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
               if (this.vehicles[i] instanceof Motorbike) {
-                this.findVehicleToTow;
-                return;
+              this.isWheelie();
+              return
               } else {
                 console.log('Only motorbikes can perform a wheelie');
               }
@@ -457,28 +460,28 @@ class Cli {
           }
         }
 
-        else if (answers.action === 'Start engine') {
-          for (let i = 0; i < this.vehicles.length; i++) {
-            if (this.vehicles[i].vin === this.selectedVehicleVin) {
-              if (this.vehicles[i] instanceof Motorbike) {
-                (this.vehicles[i] as Motorbike).startEngine();
-              } else {
-                console.log('Only motorbikes can perform a engine start');
-              }
-            }
-          }
-        }
+        // else if (answers.action === 'Start engine') {
+        //   for (let i = 0; i < this.vehicles.length; i++) {
+        //     if (this.vehicles[i].vin === this.selectedVehicleVin) {
+        //       if (this.vehicles[i] instanceof Motorbike) {
+        //         (this.vehicles[i] as Motorbike).startEngine();
+        //       } else {
+        //         console.log('Only motorbikes can perform a engine start');
+        //       }
+        //     }
+        //   }
+        // }
 
-        else if (answers.action === 'Stop engine') { for (let i = 0; i < this.vehicles.length; i++) {
-          if (this.vehicles[i].vin === this.selectedVehicleVin) {
-            if (this.vehicles[i] instanceof Motorbike) {
-              (this.vehicles[i] as Motorbike).stopEngine();
-            } else {
-              console.log('Only motorbikes can perform an engine stop');
-            }
-            }
-          }
-        }
+        // else if (answers.action === 'Stop engine') { for (let i = 0; i < this.vehicles.length; i++) {
+        //   if (this.vehicles[i].vin === this.selectedVehicleVin) {
+        //     if (this.vehicles[i] instanceof Motorbike) {
+        //       (this.vehicles[i] as Motorbike).stopEngine();
+        //     } else {
+        //       console.log('Only motorbikes can perform an engine stop');
+        //     }
+        //     }
+        //   }
+        // }
 
         else if (answers.action === 'Select or create another vehicle') {
           // start the cli to return to the initial prompt if the user wants to select or create another vehicle

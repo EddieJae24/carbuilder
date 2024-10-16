@@ -63,6 +63,9 @@ class Motorbike extends Vehicle {
     console.log(`Motorbike ${this.make} ${this.model} engine is stopping!`);
   }
 
+  isWheelie() {
+    console.log(`${this.vin} is performing a wheelie!`);
+  }
   override printDetails() {
     super.printDetails();
     console.log(`VIN: ${this.vin}`);
