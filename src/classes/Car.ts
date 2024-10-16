@@ -36,9 +36,10 @@ class Car extends Vehicle {
     this.year = year;
     this.weight = weight;
     this.topSpeed = topSpeed;
-    // Check if the wheels array has 4 elements
-    // If not, create 4 new Wheel objects
-    // Otherwise, use the provided wheels array
+  
+  //   // Check if the wheels array has 4 elements
+  //   // If not, create 4 new Wheel objects
+  //   // Otherwise, use the provided wheels array
     if (wheels.length !== 4) {
       this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
     } else {
@@ -75,6 +76,7 @@ class Car extends Vehicle {
     );
   }
 }
+
 
 // Export the Car class as the default export
 export default Car;

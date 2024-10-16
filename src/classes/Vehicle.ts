@@ -1,16 +1,19 @@
-// import Driveable interface
+// import Driveable interface - to implement the interface. The interface contains the methods that the class should implement. The interface is imported from the interfaces folder. 
 import Driveable from '../interfaces/Driveable.js';
 
-// Vehicle class that implements Driveable interface
+// Vehicle class that implements Driveable interface 
 class Vehicle implements Driveable {
   // Declare properties of the Vehicle class
+  // Some of Driveable interface properties added ?
   started: boolean;
   currentSpeed: number;
+ 
 
   // Constructor for the Vehicle class
   constructor() {
     this.started = false;
     this.currentSpeed = 0;
+    
   }
 
   // Method to print vehicle details
@@ -21,8 +24,15 @@ class Vehicle implements Driveable {
 
   // Method to start the vehicle
   start(): void {
-    this.started = true;
-    console.log('Vehicle started');
+    if (this.started) {
+      console.log('Vehicle already started');
+    } else { this.started = true;
+      console.log('Vehicle  started');
+    }
+    // this.started = true;
+    // console.log('Vehicle started');
+    // this.started = false;
+    
   }
 
   // Method to accelerate the vehicle
@@ -73,7 +83,9 @@ class Vehicle implements Driveable {
       console.log('Start the vehicle first');
     }
   }
+  
 }
+
 
 // Export the Vehicle class
 export default Vehicle;
