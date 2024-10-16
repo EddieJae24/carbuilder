@@ -1,6 +1,6 @@
 // importing classes from other files
 import inquirer from "inquirer";
-import color from "colors"; // import the colors package
+
 import Truck from "./Truck.js";
 import Car from "./Car.js";
 import Motorbike from "./Motorbike.js";
@@ -262,11 +262,7 @@ class Cli {
           name: 'rearWheelBrand',
           message: 'Enter Rear Wheel Brand',
         },
-        {
-          type: 'confirm',
-          name: 'wheelie',
-          message: 'Can the motorbike perform a wheelie?',
-        },
+      
       ])
       // TODO: Use the answers object to pass the required properties to the Motorbike constructor
       .then((answers) => {
@@ -362,6 +358,8 @@ class Cli {
             'Reverse',
             'Tow',
             'Wheelie',
+            'Start engine',
+            'Stop engine',
             'Select or create another vehicle',
             'Exit',
           ],
@@ -455,6 +453,30 @@ class Cli {
             }
           }
         }
+
+        else if (answers.action === 'Start engine') {
+          for (let i = 0; i < this.vehicles.length; i++) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin) {
+              if (this.vehicles[i] instanceof Motorbike) {
+                (this.vehicles[i] as Motorbike).startEngine();
+              } else {
+                console.log('Only motorbikes can perform a engine start');
+              }
+            }
+          }
+        }
+
+        else if (answers.action === 'Stop engine') { for (let i = 0; i < this.vehicles.length; i++) {
+          if (this.vehicles[i].vin === this.selectedVehicleVin) {
+            if (this.vehicles[i] instanceof Motorbike) {
+              (this.vehicles[i] as Motorbike).stopEngine();
+            } else {
+              console.log('Only motorbikes can perform an engine stop');
+            }
+            }
+          }
+        }
+
         else if (answers.action === 'Select or create another vehicle') {
           // start the cli to return to the initial prompt if the user wants to select or create another vehicle
           this.startCli();
