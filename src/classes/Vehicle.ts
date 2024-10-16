@@ -7,11 +7,13 @@ class Vehicle implements Driveable {
   // Some of Driveable interface properties added ?
   started: boolean;
   currentSpeed: number;
+ 
 
   // Constructor for the Vehicle class
   constructor() {
     this.started = false;
     this.currentSpeed = 0;
+    
   }
 
   // Method to print vehicle details
@@ -22,8 +24,15 @@ class Vehicle implements Driveable {
 
   // Method to start the vehicle
   start(): void {
-    this.started = true;
-    console.log('Vehicle started');
+    if (this.started) {
+      console.log('Vehicle already started');
+    } else { this.started = true;
+      console.log('Vehicle  started');
+    }
+    // this.started = true;
+    // console.log('Vehicle started');
+    // this.started = false;
+    
   }
 
   // Method to accelerate the vehicle
